@@ -1,11 +1,11 @@
-require("dotenv").config()
-const app = require("./src/app")
-const connectDB = require("./src/config/db")
+require("dotenv").config();
+const app = require("./app");
+const connectDB = require("./db/mongoose");
 
-connectDB()
+const PORT = process.env.PORT || 3000;
 
-const PORT = process.env.PORT || 4000
+connectDB();
 
 app.listen(PORT, () => {
-  console.log(`Servidor activo en http://localhost:${PORT}`)
-})
+  console.log(`Server running on port ${PORT}`);
+});
