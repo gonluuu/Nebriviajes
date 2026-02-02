@@ -1,27 +1,48 @@
-const mongoose = require("mongoose")
+// La base de todo
 
-const ViajeSchema = new mongoose.Schema({
-  nombre: {
-    type: String,
-    required: true
-  },
-  descripcion: {
-    type: String
-  },
-  fechaInicio: {
-    type: Date,
-    required: true
-  },
-  fechaFin: {
-    type: Date,
-    required: true
-  },
-  precio: {
-    type: Number,
-    required: true
-  }
-}, {
-  timestamps: true
-})
+const mongoose = require("mongoose");
 
-module.exports = mongoose.model("Viaje", ViajeSchema)
+const FlightsSchema = new mongoose.Schema(
+  {
+    origin: {
+      type: String,
+      required: true,
+    },
+    destination: {
+      type: String,
+      required: true,
+      uppercase: true,
+      trim: true,
+      index: true,
+    },
+    departureDate: {
+      type: Date,
+      required: true,
+    },
+    fechaVuelta: {
+      type: Date,
+      required: true,
+    },
+    duracion: {
+      type: String,
+      trim: true,
+    },
+    disponible: {
+      type: String,
+      trim: true,
+    },
+    aerolinea: {
+      type: String,
+      trim: true,
+    },
+    precio: {
+      type: Number,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  },
+);
+
+module.exports = mongoose.model("Flight", FlightsSchema);

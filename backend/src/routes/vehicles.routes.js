@@ -1,13 +1,12 @@
-const express = require("express")
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
+
 const {
-  getHoteles,
-  getHotelById,
-  createHotel
-} = require("../controllers/hoteles.controller")
+  searchVehicles,
+  createVehicle,
+} = require("../controllers/vehicles.controller");
 
-router.get("/", getHoteles)
-router.get("/:id", getHotelById)
-router.post("/", createHotel)
+router.get("/", searchVehicles);
+router.post("/", createVehicle);
 
-module.exports = router
+module.exports = router;
