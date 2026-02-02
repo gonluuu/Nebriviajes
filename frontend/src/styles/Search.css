@@ -1,0 +1,331 @@
+/* ===== HOTELS LIST ===== */
+
+.search-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+/* Panel filtros */
+.filters {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px;
+}
+
+.filters h4 {
+  margin: 0 0 10px;
+}
+
+.filter-block {
+  margin-top: 10px;
+}
+
+.filter-title {
+  font-weight: 700;
+  margin: 10px 0 8px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+/* Resultados */
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Tarjeta hotel */
+.hotel-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 240px 1fr 170px;
+  gap: 14px;
+  align-items: stretch;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .04);
+}
+
+/* “Imagen” placeholder */
+.hotel-img {
+  background: #d8d8d8;
+  min-height: 150px;
+  position: relative;
+}
+
+/* Puntitos tipo carrusel (opcional) */
+.hotel-img::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  width: 62px;
+  height: 10px;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, .9) 45%, transparent 46%) 0 0/12px 12px;
+  opacity: .9;
+}
+
+/* Info centro */
+.hotel-info {
+  padding: 14px 0;
+}
+
+.hotel-info h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #222;
+}
+
+.stars {
+  font-size: 14px;
+  margin-left: 6px;
+  letter-spacing: 1px;
+  color: #d2a400;
+}
+
+.hotel-info .muted {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  background: #f6f6f6;
+  color: #333;
+}
+
+/* Precio derecha */
+.hotel-price {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  border-left: 1px solid rgba(0, 0, 0, .06);
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 900;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+/* GRID de tarjetas genéricas (paquetes/ofertas/vehículos/cruceros) */
+.grid-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.deal-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 240px 1fr 170px;
+  gap: 14px;
+}
+
+.deal-img {
+  background: #d8d8d8;
+  min-height: 140px;
+}
+
+.deal-info {
+  padding: 14px 0;
+}
+
+.deal-info h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.deal-price {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  border-left: 1px solid rgba(0, 0, 0, .06);
+}
+
+/* Tarjeta tipo “vuelos/trenes” */
+.flight-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.flight-title {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.flight-price {
+  text-align: right;
+  min-width: 160px;
+}
+
+/* ===== SEARCH BAR (como la captura) ===== */
+.searchbar {
+  background: #7a1b1b;
+  padding: 14px 14px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.searchfield {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .18);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 52px;      /* NUEVO: altura fija */
+  padding: 0 14px;   /* NUEVO: centrado vertical */
+}
+
+.searchfield .icon {
+  width: 20px;       /* NUEVO */
+  height: 20px;      /* NUEVO */
+  display: grid;     /* NUEVO */
+  place-items: center; /* NUEVO */
+  opacity: .75;
+}
+
+/* Si quieres mantener font-size para emojis antiguos, puedes dejarlo, pero con SVG no hace falta */
+/* .searchfield .icon { font-size: 16px; } */
+
+.searchbar .input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  background: transparent;
+
+  height: 100%;      /* NUEVO */
+}
+
+/* NUEVO: para inputs date (evita que el icono del navegador tape texto) */
+.searchbar .input[type="date"] {
+  padding-right: 34px;
+}
+
+/* Botón Buscar (final) */
+.searchbtn {
+  background: var(--maroon);
+  color: #fff;
+  border: none;
+
+  height: 52px;        /* NUEVO: igual altura que campos */
+  padding: 0 18px;     /* NUEVO */
+  border-radius: 12px; /* NUEVO */
+  font-weight: 900;    /* NUEVO */
+  cursor: pointer;
+}
+
+.searchbtn:hover {
+  filter: brightness(.95);
+}
+
+.searchbtn:active {
+  transform: translateY(1px);
+}
+
+/* Extra */
+.flightsbar {
+  grid-template-columns: 1fr 1fr 1fr 1fr auto;
+}
+
+/* Responsive: botón ocupa todo el ancho */
+@media (max-width: 900px) {
+  .searchbtn {
+    width: 100%;
+  }
+}
+
+
+/* ===== Responsive ===== */
+@media (max-width: 980px) {
+  .search-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hotel-card {
+    grid-template-columns: 1fr;
+  }
+
+  .hotel-price {
+    text-align: left;
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, .06);
+  }
+
+  .hotel-info {
+    padding: 0 14px 14px;
+  }
+
+  .hotel-img {
+    min-height: 180px;
+  }
+
+  .deal-card {
+    grid-template-columns: 1fr;
+  }
+
+  .deal-price {
+    text-align: left;
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, .06);
+  }
+
+  .flight-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flight-price {
+    text-align: left;
+  }
+}
+
+@media (max-width: 900px) {
+  .searchbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .flightsbar {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -10,6 +10,10 @@ const PATHS = {
   CRUCEROS: "/cruceros",
   TRENES: "/trenes",
   OFERTAS: "/ofertas",
+
+  CONTACTO: "/contacto",
+  TERMINOS: "/terminos",
+  PRIVACIDAD: "/privacidad",
 };
 
 export { PATHS };

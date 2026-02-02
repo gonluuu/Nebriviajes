@@ -6,7 +6,7 @@ function Header() {
     <header className="header">
       <Link to={PATHS.HOME} className="brand">
         <div className="logo-circle">✈️</div>
-        <div className="brand-name">Nebrivajes</div>
+        <div className="brand-name">Nebriviajes</div>
       </Link>
 
       <nav className="header-actions">

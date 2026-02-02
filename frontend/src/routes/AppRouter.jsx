@@ -13,6 +13,10 @@ import CruisesPage from "../pages/Cruises/CruisesPage";
 import TrainsPage from "../pages/Trains/TrainsPage";
 import OffersPage from "../pages/Offers/OffersPage";
 
+import TermsPage from "../pages/Legal/TermsPage.jsx";
+import PrivacyPage from "../pages/Legal/PrivacyPage.jsx";
+import ContactPage from "../pages/Contact/ContactPage.jsx";
+
 import NotFoundPage from "../pages/NotFoundPage";
 import { PATHS } from "./paths";
 
@@ -32,6 +36,10 @@ function AppRouter() {
           <Route path={PATHS.CRUCEROS} element={<CruisesPage />} />
           <Route path={PATHS.TRENES} element={<TrainsPage />} />
           <Route path={PATHS.OFERTAS} element={<OffersPage />} />
+
+          <Route path={PATHS.TERMINOS} element={<TermsPage />} />
+          <Route path={PATHS.PRIVACIDAD} element={<PrivacyPage />} />
+          <Route path={PATHS.CONTACTO} element={<ContactPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>

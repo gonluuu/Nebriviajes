@@ -1,8 +1,10 @@
+import Input from "../../components/ui/Input";
+import Button from "../../components/ui/Button";
+
 function LoginPage() {
   return (
     <div className="auth-page">
       <div className="auth-panel">
-       
         <aside className="auth-left">
           <h3 className="auth-left-title">¡Únete a Nebrivajes!</h3>
           <div className="auth-left-line" />
@@ -22,27 +24,27 @@ function LoginPage() {
           </ul>
         </aside>
 
-       
         <section className="auth-right">
           <h2 className="auth-title">Bienvenido de nuevo</h2>
 
-          <input className="auth-input" type="email" placeholder="Correo electrónico" />
-          <input className="auth-input" type="password" placeholder="Contraseña" />
+          <Input
+            className="auth-input"
+            type="email"
+            placeholder="Correo electrónico"
+          />
+          <Input
+            className="auth-input"
+            type="password"
+            placeholder="Contraseña"
+          />
 
           <label className="auth-remember">
             <input type="checkbox" />
             <span>Recordar mis datos</span>
           </label>
 
-          <button className="auth-btn">Inicia Sesion</button>
-
-          <div className="auth-or">o inicia sesión en un click</div>
-
-          <div className="auth-social">
-            <button className="auth-social-btn fb">FACEBOOK</button>
-            <button className="auth-social-btn gg">GOOGLE</button>
-          </div>
-
+          <Button className="auth-btn">Inicia Sesion</Button>
+         
           <div className="auth-forgot">
             ¿Has olvidado tu contraseña? <a href="#">Pulsa aquí</a>
           </div>

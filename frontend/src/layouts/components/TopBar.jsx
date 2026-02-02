@@ -2,9 +2,9 @@ function TopBar() {
   return (
     <div className="topbar">
       <div className="topbar-left">
-        <a href="#" className="toplink">Contacto</a>
+        <a href="/contacto" className="toplink">Contacto</a>
         <span className="sep">|</span>
-        <a href="#" className="toplink">Preguntas Frecuentes</a>
+        <a href="/#faq" className="toplink">Preguntas Frecuentes</a>
       </div>
 
       <div className="topbar-right">
