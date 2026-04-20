@@ -3,6 +3,9 @@ const PATHS = {
   LOGIN: "/login",
   REGISTRO: "/registro",
 
+  PERFIL: "/perfil",
+  FAVORITOS: "/favoritos",
+
   VUELOS: "/vuelos",
   HOTELES: "/hoteles",
   PAQUETES: "/paquetes",

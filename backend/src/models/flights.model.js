@@ -19,23 +19,28 @@ const FlightsSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
-    fechaVuelta: {
+    dateReturn: {
       type: Date,
       required: true,
     },
-    duracion: {
+    duration: {
       type: String,
       trim: true,
     },
-    disponible: {
+    available: {
+      type: Boolean,
+      trim: true,
+    },
+    imageUrl: {
+      type: String,
+      trim: true,
+      default: "",
+    },
+    airline: {
       type: String,
       trim: true,
     },
-    aerolinea: {
-      type: String,
-      trim: true,
-    },
-    precio: {
+    price: {
       type: Number,
       required: true,
     },

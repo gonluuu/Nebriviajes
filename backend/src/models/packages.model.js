@@ -41,6 +41,11 @@ const PackageSchema = new mongoose.Schema(
       default: true,
       index: true,
     },
+    imageUrl: {
+      type: String,
+      trim: true,
+      default: "",
+    },
   },
   {
     timestamps: true,

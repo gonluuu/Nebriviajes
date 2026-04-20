@@ -1,13 +1,18 @@
 import { useState } from "react";
+import { sendContact } from "../../api/contact";
 
 export default function ContactPage() {
   const [status, setStatus] = useState({ type: "", msg: "" });
 
   async function onSubmit(e) {
     e.preventDefault();
+
+    // Guardamos el formulario antes del await (más fiable)
+    const formEl = e.currentTarget;
+
     setStatus({ type: "loading", msg: "Enviando mensaje..." });
 
-    const form = new FormData(e.currentTarget);
+    const form = new FormData(formEl);
     const payload = {
       name: form.get("name"),
       email: form.get("email"),
@@ -16,21 +21,21 @@ export default function ContactPage() {
     };
 
     try {
-      // TODO: cuando tengas backend, conecta aquí:
-      // await fetch(`${import.meta.env.VITE_API_URL}/contact`, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(payload) });
-
-      await new Promise((r) => setTimeout(r, 450));
+      await sendContact(payload);
 
       setStatus({
         type: "ok",
         msg: "¡Mensaje enviado! Te responderemos lo antes posible.",
       });
-      e.currentTarget.reset();
     } catch (err) {
       setStatus({
         type: "error",
-        msg: "No se pudo enviar el mensaje. Inténtalo de nuevo en unos minutos.",
+        msg: "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+
       });
+    } finally {
+   
+      formEl.reset();
     }
   }
 
@@ -44,7 +49,7 @@ export default function ContactPage() {
       </div>
 
       <div className="contact-layout">
-        {/* Form */}
+        {/* Formulario */}
         <section className="panel">
           <div className="panel-head">
             <h2>Envíanos un mensaje</h2>
@@ -60,7 +65,13 @@ export default function ContactPage() {
 
               <div>
                 <label className="label">Email</label>
-                <input className="field" type="email" name="email" placeholder="tuemail@ejemplo.com" required />
+                <input
+                  className="field"
+                  type="email"
+                  name="email"
+                  placeholder="tuemail@ejemplo.com"
+                  required
+                />
               </div>
             </div>
 
@@ -74,7 +85,12 @@ export default function ContactPage() {
             </select>
 
             <label className="label">Mensaje</label>
-            <textarea className="field textarea" name="message" placeholder="Cuéntanos en qué podemos ayudarte..." required />
+            <textarea
+              className="field textarea"
+              name="message"
+              placeholder="Cuéntanos en qué podemos ayudarte..."
+              required
+            />
 
             <div className="form-actions">
               <button className="btn" type="submit">Enviar</button>
@@ -85,7 +101,7 @@ export default function ContactPage() {
           </form>
         </section>
 
-        {/* Info */}
+        {/* Información lateral */}
         <aside className="panel panel-alt">
           <h2>Atención al cliente</h2>
 
@@ -113,20 +129,6 @@ export default function ContactPage() {
 
           <div className="note">
             <strong>Consejo:</strong> si tu consulta es sobre una reserva, incluye fechas, destino y el email usado.
-          </div>
-
-          <div className="mini-cards">
-            <div className="mini-card">
-              <div className="mini-title">Preguntas frecuentes</div>
-              <div className="muted">Resuelve dudas comunes en segundos.</div>
-              <a className="link-mini" href="/#faq">Ir a FAQ</a>
-            </div>
-
-            <div className="mini-card">
-              <div className="mini-title">Seguridad</div>
-              <div className="muted">Protegemos tu cuenta y tus datos.</div>
-              <span className="badge">HTTPS</span>
-            </div>
           </div>
         </aside>
       </div>

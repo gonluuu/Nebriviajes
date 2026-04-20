@@ -1,18 +1,12 @@
-function Button({
-  children,
-  className = "",
-  type = "button",
-  disabled = false,
-  ...props
-}) {
+function Button(props) {
   return (
     <button
-      type={type}
-      disabled={disabled}
-      className={className}
+      type={props.type || "button"}
+      disabled={props.disabled || false}
+      className={props.className || ""}
       {...props}
     >
-      {children}
+      {props.children}
     </button>
   );
 }

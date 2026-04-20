@@ -1,7 +1,34 @@
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { loginUser } from "../../api/auth";
+import { useAuthStore } from "../../store/useAuthStore";
+import { PATHS } from "../../routes/paths";
 
 function LoginPage() {
+  const navigate = useNavigate();
+  const setLogin = useAuthStore((s) => s.login);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    setError("");
+
+    try {
+      const data = await loginUser({ email, password });
+      setLogin(data.user, data.token);
+      navigate(PATHS.HOME);
+    } catch (err) {
+      setError(
+        err?.response?.data?.message || "No se pudo iniciar sesión"
+      );
+    }
+  }
+
   return (
     <div className="auth-page">
       <div className="auth-panel">
@@ -27,26 +54,31 @@ function LoginPage() {
         <section className="auth-right">
           <h2 className="auth-title">Bienvenido de nuevo</h2>
 
-          <Input
-            className="auth-input"
-            type="email"
-            placeholder="Correo electrónico"
-          />
-          <Input
-            className="auth-input"
-            type="password"
-            placeholder="Contraseña"
-          />
+          <form onSubmit={onSubmit}>
+            <Input
+              className="auth-input"
+              type="email"
+              placeholder="Correo electrónico"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input
+              className="auth-input"
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-          <label className="auth-remember">
-            <input type="checkbox" />
-            <span>Recordar mis datos</span>
-          </label>
+            {error ? <p className="muted">{error}</p> : null}
 
-          <Button className="auth-btn">Inicia Sesion</Button>
-         
+            <Button className="auth-btn" type="submit">
+              Inicia Sesión
+            </Button>
+          </form>
+
           <div className="auth-forgot">
-            ¿Has olvidado tu contraseña? <a href="#">Pulsa aquí</a>
+            ¿No tienes cuenta? <Link to={PATHS.REGISTRO}>Crear cuenta</Link>
           </div>
         </section>
       </div>

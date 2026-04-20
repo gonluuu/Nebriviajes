@@ -1,11 +1,15 @@
-export default function TermsPage() {
+ function TermsPage() {
   return (
     <div className="container">
-      <div className="legal">
+      <div className="legal-page legal-terms">
+        <div className="legal-meta">
+          <span className="badge">Legal</span>
+          <span className="muted">
+            Última actualización: {new Date().toLocaleDateString("es-ES")}
+          </span>
+        </div>
+
         <h1>Términos y condiciones</h1>
-        <p className="muted">
-          Última actualización: {new Date().toLocaleDateString("es-ES")}
-        </p>
 
         <h2>1. Objeto</h2>
         <p>
@@ -40,10 +44,10 @@ export default function TermsPage() {
         </p>
 
         <h2>6. Contacto</h2>
-        <p>
-          Para consultas, visita la página de Contacto.
-        </p>
+        <p>Para consultas, visita la página de Contacto.</p>
       </div>
     </div>
   );
 }
+
+export default TermsPage;

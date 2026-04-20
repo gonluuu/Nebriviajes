@@ -2,7 +2,7 @@ export default function TermsPage() {
   return (
     <div className="container">
       <div className="page-head">
-        <h1>Términos y condiciones</h1>
+        <h1>Politica de privacidad</h1>
         <p className="muted">
           Estos términos regulan el acceso y uso de la plataforma Nebrivajes.
         </p>

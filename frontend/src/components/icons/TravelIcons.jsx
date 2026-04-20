@@ -1,5 +1,3 @@
-import React from "react";
-
 export function IconPlane({ size = 22, className = "" }) {
   return (
     <svg
@@ -56,6 +54,21 @@ export function IconCar({ size = 22, className = "" }) {
       aria-hidden="true"
     >
       <path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11v7h-2v-2H7v2H5v-7Zm3.2-4  -.6 2h8.8l-.6-2H8.2ZM7.5 14.5A1.5 1.5 0 1 0 7.5 17a1.5 1.5 0 0 0 0-2.5Zm9 0A1.5 1.5 0 1 0 16.5 17a1.5 1.5 0 0 0 0-2.5Z" />
+    </svg>
+  );
+}
+
+export function IconShip({ size = 22, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M20 21H4v-2h16v2Zm1-6-2 2H5l-2-2V5h6V3h6v2h6v10ZM5 7v7.2l.8.8h12.4l.8-.8V7H5Z" />
     </svg>
   );
 }
@@ -121,3 +134,4 @@ export function IconUser({ size = 22, className = "" }) {
     </svg>
   );
 }
+

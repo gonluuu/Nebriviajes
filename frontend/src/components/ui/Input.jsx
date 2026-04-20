@@ -1,10 +1,12 @@
 import React from "react";
 
-const Input = React.forwardRef(function Input(
-  { className = "", ...props },
-  ref
-) {
-  return <input ref={ref} className={className} {...props} />;
-});
+function Input(props) {
+  return (
+    <input
+      className={props.className || ""}
+      {...props}
+    />
+  );
+}
 
 export default Input;

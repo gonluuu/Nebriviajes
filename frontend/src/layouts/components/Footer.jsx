@@ -2,16 +2,21 @@ import { Link } from "react-router-dom";
 import { PATHS } from "../../routes/paths";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
+import logo from "../../assets/logo1.png";
 
 function Footer() {
-  const year = new Date().getFullYear();
+  
 
   return (
     <footer className="footer">
       <div className="container footer-grid">
         <div className="footer-brand">
           <div className="footer-logo">
-            <span className="footer-logo-circle">✈️</span>
+            <img
+          src={logo}
+          alt="Logo de Nebriviajes"
+          className="brand-logo"
+        />
             <div>
               <div className="footer-brand-name">Nebrivajes</div>
               <div className="footer-brand-sub muted">
@@ -69,7 +74,7 @@ function Footer() {
 
       <div className="footer-bottom">
         <div className="container footer-bottom-inner">
-          <span>© {year} Nebrivajes · Todos los derechos reservados</span>
+          <span>© 2026 Nebrivajes · Todos los derechos reservados</span>
           <span className="muted">ES · EUR</span>
         </div>
       </div>
