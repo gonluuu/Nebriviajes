@@ -1,0 +1,102 @@
+/* ===== Reset / base ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  /* Fuente predeterminada del sistema (como antes) */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Números bien alineados */
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+}
+
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+h1, h2, h3 {
+  margin: 0 0 10px;
+}
+
+
+
+/* ===== Variables globales  ===== */
+:root {
+  --maroon: #7a1b1b;
+  --maroon-dark: #5e1414;
+  --black: #111;
+  --bg: #f4f4f4;
+  --card: #ffffff;
+  --muted: #6c6c6c;
+  --border: #d9d9d9;
+}
+
+/* ===== Helpers globales ===== */
+a { color: inherit; text-decoration: none; }
+.muted { color: var(--muted); }
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* App layout base (para que el footer baje) */
+.app {
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  padding: 22px 0;
+  flex: 1;
+}
+
+
+
+
+/* ===== Toasts / avisos bonitos ===== */
+.toast-host {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(360px, calc(100vw - 32px));
+}
+
+.toast-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #fff;
+  color: #1f1f1f;
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 34px rgba(0,0,0,.16);
+  font-weight: 750;
+}
+
+.toast-card button {
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+}
+
+.toast-success { border-left: 5px solid #198754; }
+.toast-error { border-left: 5px solid #b42318; }
+.toast-info { border-left: 5px solid var(--maroon); }

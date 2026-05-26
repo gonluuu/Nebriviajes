@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7a1b1b"/><stop offset="1" stop-color="#c7a46b"/></linearGradient></defs>
+  <rect width="800" height="520" fill="url(#g)"/>
+  <circle cx="650" cy="110" r="70" fill="rgba(255,255,255,.16)"/>
+  <path d="M90 365h620l-105-120-80 80-110-130-135 170-70-82z" fill="rgba(255,255,255,.35)"/>
+  <text x="400" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#fff">NebriViajes</text>
+  <text x="400" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,.86)">imagen no disponible</text>
+</svg>
